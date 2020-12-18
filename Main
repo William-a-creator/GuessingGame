@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Main 
+{
+  public static void main(String[] args) 
+  {
+    Scanner scan = new Scanner(System.in);
+   // Choose a random number from 0-100 
+  double random = (int)(Math.random() * 100 + 1);
+  int ran = (int)random;
+  //System.out.print(ran);
+
+   // Ask the user to guess a number from 0 to 100 
+  int trys = 0;
+   // Get the first guess using scan.nextInt();
+   // use a loop to keep asking for a guess until it is within the correct range
+  while (true){
+     System.out.println("Guess a number from 0 to 100");
+    int guess = Integer.valueOf(scan.nextLine());
+    if (guess > 100 || guess < 0){
+      System.out.println("Please guess within the range of 0 - 100.");
+    }
+    if (guess == ran){
+      trys++;
+      System.out.println("You got it!");
+      System.out.println("It took you " + trys + " tries.");
+      break;
+    }
+    if (guess < ran){
+      System.out.println("Too low! ");
+      trys++;
+    } else if (guess > ran){
+      System.out.println("Too high! ");
+      trys++;
+    }
+  }
+   
+
+  }
+}
